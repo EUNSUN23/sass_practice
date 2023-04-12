@@ -14,18 +14,55 @@ Dark green: #28b485
     box-sizing: border-box;
 }
 
-body{
-    font-family:"Lato",sans-serif;
-    font-weight:400;
-    font-size:16px;
-    line-height:1.7; /* 원래 가지고 있는 line-height의 1.7배 */
-    color:#777;
+body {
+    font-family: "Lato", sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.7; /* 원래 가지고 있는 line-height의 1.7배 */
+    color: #777;
+    padding: 30px; /* padding은 상속되지 않음. */
+}
+
+.header {
+    height: 95vh;
+    background-image: linear-gradient(to right bottom, rgba(126, 213, 111, 0.8), rgba(40, 180, 131, 0.8), #7ed56f, #28b485), url(../img/hero.jpg);
+    background-size: cover; /* 요소 전체에 fit 되도록 */
+    background-position: top; /* background 이미지 위치 지정. 화면크기 resizing될때 배경이미지가 어딜 기준으로 resizing될지.. */
+    position: relative;
+
+    /* clip-path: 요소에서 보여지는 영역을 정함. 보여질 영역의 left top부터 시계방향으로 x,y(%,px 가능) 입력함. bennettfeely.com/clippy 사이트 참고*/
+    clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+}
+
+.logo-box {
+    position: absolute;
+    top: 40px;
+    left: 40px;
+}
+
+.logo {
+    height: 35px; /* width가 컨텐츠에 따라 자동조절되게 할지, height가 자동조절되게 할지는 개발자 마음. 여기선 height만 정해주고 width는 놔둠.*/
+}
+
+.text-box{
 
 }
 
-.header{
-    height:95vh;
-    background-image: url(../img/hero.jpg);
-    background-size: cover; /* 요소 전체에 fit 되도록 */
-    background-position:top;
+.heading-primary {
+    color: #fff;
+    text-transform: uppercase; /* 대문자로 */
+}
+
+.heading-primary-main {
+    display: block; /* display block - 전체 width차지하게 하고 다음 요소와의 사이에 line break가 생긴다.*/
+    font-size: 60px;
+    font-weight: 400; /* 왜 body에서 상속이 안되지? */
+    letter-spacing: 35px;
+}
+
+.heading-primary-sub {
+    display: block;
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 17.4px;
 }
