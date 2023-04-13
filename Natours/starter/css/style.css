@@ -10,8 +10,9 @@ Dark green: #28b485
 /* normalize */
 * {
     margin: 0;
-    padding: 0;
+    /*padding: 0;*/
     box-sizing: border-box;
+
 }
 
 body {
@@ -44,13 +45,20 @@ body {
     height: 35px; /* width가 컨텐츠에 따라 자동조절되게 할지, height가 자동조절되게 할지는 개발자 마음. 여기선 height만 정해주고 width는 놔둠.*/
 }
 
-.text-box{
-
+.text-box {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
 }
 
 .heading-primary {
     color: #fff;
     text-transform: uppercase; /* 대문자로 */
+
+    backface-visibility: hidden; /* ? */
+    margin-bottom: 60px;
 }
 
 .heading-primary-main {
@@ -58,6 +66,11 @@ body {
     font-size: 60px;
     font-weight: 400; /* 왜 body에서 상속이 안되지? */
     letter-spacing: 35px;
+    animation-name: moveInLeft;
+    animation-duration: 1s;
+    animation-timing-function: ease-out;
+    /*animation-iteration-count: 3;*/
+    /*animation-delay: 3s;*/
 }
 
 .heading-primary-sub {
@@ -65,4 +78,62 @@ body {
     font-size: 20px;
     font-weight: 700;
     letter-spacing: 17.4px;
+    animation: moveInRight 1s ease-out;
+}
+
+/* h1 애니메이션 */
+@keyframes moveInLeft {
+    0% {
+        opacity: 0;
+        transform: translateX(-100px);
+    }
+    80% {
+        transform: translateX(10px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes moveInRight {
+    0% {
+        opacity: 0;
+        transform: translateX(100px);
+    }
+    80% {
+        transform: translateX(-10px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Discover our tours button */
+.btn:link, /* link - anchor태그일때(?), visited:링크 클릭후 버튼 상태 */
+.btn:visited {
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 15px 40px;
+    display: inline-block; /* inline-block : 줄바꿈은 되지 않지만 여백,width,height지정 가능하다. */
+    border-radius: 100px;
+    transition: all .2s;
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+    /* 1. x-direction shadow 2. down 3. blurr */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, .2);
+}
+
+.btn:active {
+    transform: translateY(-1px);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, .2);
+}
+
+.btn-white {
+    background-color: #fff;
+    color: #777;
+
 }
