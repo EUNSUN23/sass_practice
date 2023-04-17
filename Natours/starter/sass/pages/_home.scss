@@ -1,0 +1,5 @@
+.section-about {
+  background-color: $color-grey-light-1;
+  padding: 25rem 0;
+  margin-top: -25vh; // outdoors 영역의 하단 트라이앵글 height만큼 위로 올림. (95vh - 75vh)
+}
