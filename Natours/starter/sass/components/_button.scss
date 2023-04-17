@@ -1,0 +1,57 @@
+/* Discover our tours button */
+.btn {
+  &:link, /* link - anchor태그일때(?), visited:링크 클릭후 버튼 상태 */
+  &:visited {
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 1.5rem 4rem;
+    display: inline-block; /* inline-block : 줄바꿈은 되지 않지만 여백,width,height지정 가능하다. */
+    border-radius: 10rem;
+    transition: all .2s;
+    position: relative;
+    font-size: 1.6rem;
+  }
+
+  &:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 1rem 2rem rgba($color-black, .2); /* 1. x-direction shadow 2. down 3. blurr */
+    &::after {
+      transform: scaleX(1.4) scaleY(1.6); /* 원래 size의 n배 확대 */
+      opacity: 0;
+    }
+  }
+
+  &:active {
+    transform: translateY(-1px);
+    box-shadow: 0 .5rem 1rem rgba($color-black, .2);
+  }
+
+  &--white {
+    background-color: $color-white;
+    color: $color-grey-dark;
+
+    &::after {
+      background-color: $color-white;
+      color: $color-grey-dark;
+    }
+  }
+
+  &::after { /* before, after 가상선택자는 붙은 대상의 자식 요소처럼 취급된다. 그래서 width:100% 먹히는것.*/
+    content: "";
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    border-radius: 10rem;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    transition: all .4s;
+  }
+
+  &--animated {
+    animation: moveInBottom .5s ease-out .75; /* name duraation timingfunc delay */
+    animation-fill-mode: backwards; /* 애니매이션에 시작하기 전의 요소 스타일을 keyframe 0%일때에 스타일로 한다 */
+  }
+
+}

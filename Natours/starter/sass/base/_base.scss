@@ -1,0 +1,19 @@
+
+*, *::after, *::before { /* *만 쓰면 가상클래스들은 선택 안됨. */
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit; /* box-sizing은 원래 상속되는 속성이 아니지만 inherit 키워드 붙여서 전역에서 쓰이는 box-sizing이 상속되도록 강제함. */
+
+}
+
+html {
+  /*font-size:10px; !* don't do : 개발자가 px로 정하는 것이 아니라, 브라우저로부터 제공받는 font-size에 비례하게끔 %로 해야한다.
+  사용자가 브라우저 줌인/줌아웃시 font-size도 변하는것 고려해야하기 때문에.
+  참고: 브라우저의 기본 font-size는 16px. 만약에 10px정도의 폰트를 원한다면 10/16 해서 percentage로 설정해야함.
+  *!*/
+  font-size: 62.5%; /* rem을 위한 값이기 때문에 base안에 뒀음. */
+}
+
+body {
+  box-sizing: border-box; /* 전역에서 inherit키워드로 상속되도록 함. */
+}
