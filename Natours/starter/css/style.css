@@ -8,20 +8,29 @@ Dark green: #28b485
 */
 
 /* normalize */
-* {
+*, *::after, *::before { /* *만 쓰면 가상클래스들은 선택 안됨. */
     margin: 0;
-    /*padding: 0;*/
-    box-sizing: border-box;
+    padding: 0;
+    box-sizing: inherit; /* box-sizing은 원래 상속되는 속성이 아니지만 inherit 키워드 붙여서 전역에서 쓰이는 box-sizing이 상속되도록 강제함. */
 
+}
+
+html {
+    /*font-size:10px; !* don't do : 개발자가 px로 정하는 것이 아니라, 브라우저로부터 제공받는 font-size에 비례하게끔 %로 해야한다.
+    사용자가 브라우저 줌인/줌아웃시 font-size도 변하는것 고려해야하기 때문에.
+    참고: 브라우저의 기본 font-size는 16px. 만약에 10px정도의 폰트를 원한다면 10/16 해서 percentage로 설정해야함.
+    *!*/
+    font-size: 62.5%;
 }
 
 body {
     font-family: "Lato", sans-serif;
     font-weight: 400;
-    font-size: 16px;
+    /*font-size: 16px;*/
     line-height: 1.7; /* 원래 가지고 있는 line-height의 1.7배 */
     color: #777;
-    padding: 30px; /* padding은 상속되지 않음. */
+    padding: 3rem; /* padding은 상속되지 않음. */
+    box-sizing: border-box; /* 전역에서 inherit키워드로 상속되도록 함. */
 }
 
 .header {
@@ -35,17 +44,17 @@ body {
     clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
 }
 
-.logo-box {
+.header__logo-box {
     position: absolute;
-    top: 40px;
-    left: 40px;
+    top: 4rem;
+    left: 4rem;
 }
 
-.logo {
-    height: 35px; /* width가 컨텐츠에 따라 자동조절되게 할지, height가 자동조절되게 할지는 개발자 마음. 여기선 height만 정해주고 width는 놔둠.*/
+.header__logo {
+    height: 3.5rem; /* width가 컨텐츠에 따라 자동조절되게 할지, height가 자동조절되게 할지는 개발자 마음. 여기선 height만 정해주고 width는 놔둠.*/
 }
 
-.text-box {
+.header__text-box {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -58,14 +67,14 @@ body {
     text-transform: uppercase; /* 대문자로 */
 
     backface-visibility: hidden; /* ? */
-    margin-bottom: 60px;
+    margin-bottom: 6rem;
 }
 
-.heading-primary-main {
+.heading-primary--main {
     display: block; /* display block - 전체 width차지하게 하고 다음 요소와의 사이에 line break가 생긴다.*/
-    font-size: 60px;
+    font-size: 6rem;
     font-weight: 400; /* 왜 body에서 상속이 안되지? */
-    letter-spacing: 35px;
+    letter-spacing: 3.5rem;
     animation-name: moveInLeft;
     animation-duration: 1s;
     animation-timing-function: ease-out;
@@ -73,11 +82,11 @@ body {
     /*animation-delay: 3s;*/
 }
 
-.heading-primary-sub {
+.heading-primary--sub {
     display: block;
-    font-size: 20px;
+    font-size: 2rem;
     font-weight: 700;
-    letter-spacing: 17.4px;
+    letter-spacing: 1.75rem;
     animation: moveInRight 1s ease-out;
 }
 
@@ -85,10 +94,10 @@ body {
 @keyframes moveInLeft {
     0% {
         opacity: 0;
-        transform: translateX(-100px);
+        transform: translateX(-10rem);
     }
     80% {
-        transform: translateX(10px);
+        transform: translateX(1rem);
     }
     100% {
         opacity: 1;
@@ -99,14 +108,28 @@ body {
 @keyframes moveInRight {
     0% {
         opacity: 0;
-        transform: translateX(100px);
+        transform: translateX(10rem);
     }
     80% {
-        transform: translateX(-10px);
+        transform: translateX(-1rem);
     }
     100% {
         opacity: 1;
         transform: translateX(0);
+    }
+}
+
+@keyframes moveInBottom {
+    0% {
+        opacity: 0;
+        transform: translateY(3rem);
+    }
+    /*80% {*/
+    /*    transform: translateY(40px);*/
+    /*}*/
+    100% {
+        opacity: 1;
+        transform: translateY(0);
     }
 }
 
@@ -115,25 +138,54 @@ body {
 .btn:visited {
     text-transform: uppercase;
     text-decoration: none;
-    padding: 15px 40px;
+    padding: 1.5rem 4rem;
     display: inline-block; /* inline-block : 줄바꿈은 되지 않지만 여백,width,height지정 가능하다. */
-    border-radius: 100px;
+    border-radius: 10rem;
     transition: all .2s;
+    position:relative;
+    font-size: 1.6rem;
 }
 
 .btn:hover {
     transform: translateY(-3px);
     /* 1. x-direction shadow 2. down 3. blurr */
-    box-shadow: 0 10px 20px rgba(0, 0, 0, .2);
+    box-shadow: 0 1rem 2rem rgba(0, 0, 0, .2);
 }
 
 .btn:active {
     transform: translateY(-1px);
-    box-shadow: 0 5px 10px rgba(0, 0, 0, .2);
+    box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .2);
 }
 
-.btn-white {
+.btn--white {
     background-color: #fff;
     color: #777;
+}
 
+.btn::after { /* before, after 가상선택자는 붙은 대상의 자식 요소처럼 취급된다. 그래서 width:100% 먹히는것.*/
+    content: "";
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    border-radius: 10rem;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    transition: all .4s;
+}
+
+.btn-white::after{
+    background-color: #fff;
+    color: #777;
+}
+
+.btn:hover::after{
+    transform: scaleX(1.4) scaleY(1.6);/* 원래 size의 n배 확대 */
+    opacity: 0;
+}
+
+.btn--animated {
+    animation: moveInBottom .5s ease-out .75; /* name duraation timingfunc delay */
+    animation-fill-mode: backwards; /* 애니매이션에 시작하기 전의 요소 스타일을 keyframe 0%일때에 스타일로 한다 */
 }

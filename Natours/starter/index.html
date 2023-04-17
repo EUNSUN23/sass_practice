@@ -14,17 +14,17 @@
     </head>
     <body>
         <header class="header">
-            <div class="logo-box">
-                <img src="img/logo-white.png" alt="logo" class="logo"/>
+            <div class="header__logo-box">
+                <img src="img/logo-white.png" alt="logo" class="header__logo"/>
             </div>
 
-            <div class="text-box">
-                <h1 class="heading-primary">
-                    <span class="heading-primary-main">Outdoors</span> <!-- span태그는 특정 텍스트를 다르게 스타일링하기 위한 용도임.-->
-                    <span class="heading-primary-sub">is where life happens</span>
+            <div class="header__text-box">
+                <h1 class="heading-primary"> <!-- 독립적으로 쓰일 수 있는 요소이기때문에 bem에서 block취급 -->
+                    <span class="heading-primary--main">Outdoors</span> <!-- span태그는 특정 텍스트를 다르게 스타일링하기 위한 용도임.--> <!-- bem에서 modifier -->
+                    <span class="heading-primary--sub">is where life happens</span>
                 </h1>
 
-                <a href="#" class="btn btn-white">Discover our tours</a>
+                <a href="#" class="btn btn--white btn--animated">Discover our tours</a> <!-- btn: bem중 block(독립적으로 쓸 수 있음)-->
             </div>
 
         </header>
