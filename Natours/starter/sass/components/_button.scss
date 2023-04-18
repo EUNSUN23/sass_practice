@@ -36,6 +36,16 @@
     }
   }
 
+  &--green {
+    background-color: $color-primary;
+    color: $color-white;
+
+    &::after {
+      background-color: $color-primary;
+      color: $color-white;
+    }
+  }
+
   &::after { /* before, after 가상선택자는 붙은 대상의 자식 요소처럼 취급된다. 그래서 width:100% 먹히는것.*/
     content: "";
     display: inline-block;
