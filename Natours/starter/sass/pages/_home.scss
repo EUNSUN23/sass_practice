@@ -3,3 +3,22 @@
   padding: 25rem 0;
   margin-top: -25vh; // outdoors 영역의 하단 트라이앵글 height만큼 위로 올림. (95vh - 75vh)
 }
+
+.section-features{
+  padding: 20rem 0;
+  background-image: linear-gradient(to right bottom, rgba($color-primary-light, 0.8), rgba($color-primary-dark, 0.8), #7ed56f, #28b485), url(../img/nat-4.jpg);
+  background-size: cover;
+
+  transform: skewY(-7deg);
+  margin-top: -10rem;
+
+  & > * { // .section-features의 직계자손(바로 밑에있는 요소)을 모두 선택한다.
+    transform: skewY(7deg);
+  }
+}
+
+.section-tours{
+  background-color: $color-grey-light-1;
+  padding: 25rem 0 50rem 0;
+  margin-top:-10rem;
+}

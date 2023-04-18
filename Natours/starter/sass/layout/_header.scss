@@ -6,6 +6,7 @@
   position: relative;
 
   /* clip-path: 요소에서 보여지는 영역을 정함. 보여질 영역의 left top부터 시계방향으로 x,y(%,px 가능) 입력함. bennettfeely.com/clippy 사이트 참고*/
+  -webkit-clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
   clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
 
   &__logo-box {
