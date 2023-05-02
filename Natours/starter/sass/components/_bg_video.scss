@@ -1,0 +1,18 @@
+.bg-video{
+  position:absolute;
+  top:0;
+  left:0;
+  height:100%;
+  width: 100%;
+  z-index:-1;
+  opacity: .15;
+  overflow:hidden;
+
+  &__content {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    // 부모요소의 전체 영역을 차지하되 원래 비율을 유지함. background-size:cover;와 비슷하지만 background-size는 background속성에
+    // 이용되고, object-fit은 html요소에 이용됨.
+  }
+}

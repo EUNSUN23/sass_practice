@@ -228,8 +228,10 @@
     <!-- section-stories start -->
     <section class="section-stories">
         <div class="bg-video">
-            <video class="bg-video__content">
-
+            <video class="bg-video__content" autoplay muted loop> <!-- 자동재생, 음소거모드, 반복-->
+                <source src="img/video.mp4" type="video/mp4"> <!-- 브라우저 호환위해서 mp4, webm 둘 다 넣음. -->
+                <source src="img/video.webm" type="video/webm">
+                Your browser is not supported <!-- mp4, webm둘 다 안되면 표시되는 텍스트 -->
             </video>
         </div>
         <div class="u-center-text u-margin-bottom-big">
