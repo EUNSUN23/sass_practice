@@ -23,7 +23,7 @@
       border-bottom: 3px solid $color-primary;
     }
 
-    &:focus:invalid{
+    &:focus:invalid {
       border-bottom: 3px solid $color-secondary-dark;
     }
 
@@ -32,8 +32,19 @@
     }
   }
 
-
   &__label {
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-left: 2rem;
+    margin-top: .7rem;
+    display: block;
+    transition: all .3s;
+  }
+
+  &__input:placeholder-shown + &__label { // input의 placeholder가 존재할때 바로 뒤에오는 형제 label선택. "~"는 general 형제선택자.
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-4rem);
 
   }
 }
