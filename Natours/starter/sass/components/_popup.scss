@@ -6,14 +6,32 @@
   left: 0;
   background-color: rgba($color-black, .8);
   z-index: 9999;
-  opacity:0;
+  opacity: 0;
   visibility: hidden;
   transition: all .3s;
 
   // popup이 anchor에 의해 타겟팅 되었을 때
-  &:target{
+  &:target {
     opacity: 1;
     visibility: visible;
+  }
+
+  &__close {
+    &:link, &:visited {
+      color: $color-grey-dark;
+      position: absolute;
+      top: 2.5rem;
+      right: 2.5rem;
+      font-size: 3rem;
+      text-decoration: none;
+      display: inline-block;
+      transition: all .2s;
+      line-height: 1; // close가 html특수문자라서 line-height 지정해줌.
+    }
+
+    &:hover {
+      color: $color-primary;
+    }
   }
 
   &__content {
