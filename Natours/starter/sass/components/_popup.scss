@@ -40,5 +40,9 @@
   &__text {
     font-size: 1.4rem;
     margin-bottom: 4rem;
+
+    column-count: 2; // column 자동생성
+    column-gap: 4rem; // column간 gap
+    column-rule: 1px solid $color-grey-light-2; // column사이의 border
   }
 }
