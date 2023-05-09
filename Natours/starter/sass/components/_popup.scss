@@ -40,10 +40,17 @@
     font-size: 1.4rem;
     margin-bottom: 4rem;
 
+    -moz-column-count: 2;
+    -moz-column-gap: 4rem;
+    -moz-column-rule: 1px solid $color-grey-light-2;
+
     column-count: 2; // column 자동생성
     column-gap: 4rem; // column간 gap
     column-rule: 1px solid $color-grey-light-2; // column사이의 border
 
     hyphens: auto; // 문장에 hyphen을 자동으로 생성해준다. 단 html lang="en"일때.
+    -moz-hyphens: auto; // 문장에 hyphen을 자동으로 생성해준다. 단 html lang="en"일때.
+    -ms-hyphens: auto; // 문장에 hyphen을 자동으로 생성해준다. 단 html lang="en"일때.
+    -webkit-hyphens: auto; // 문장에 hyphen을 자동으로 생성해준다. 단 html lang="en"일때.
   }
 }
